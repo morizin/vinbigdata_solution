@@ -56,6 +56,7 @@ In our final submission Invalidated subs were weighted much more , which overfit
 ### Some Findings
 - We used this [kernel](https://www.kaggle.com/shonenkov/bayesian-optimization-wbf-efficientdet) to find our best iou and skip_box_thr for ensembling.
 we found iou somewhere between 0.33 to 0.4 is fine and we kept skip_box_thr as 0.0 or 0.001
+
 ![enter image description here](https://i.ibb.co/BgsPSBC/Vin-Big-Data-CV-Bayesian-Kaggle-3-31-2021-6-13-05-PM.png)
 ![enter image description here](https://i.ibb.co/Bg9WVrn/Vin-Big-Data-CV-Bayesian-Kaggle-3-31-2021-6-12-56-PM.png)
 
