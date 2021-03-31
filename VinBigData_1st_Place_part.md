@@ -60,10 +60,12 @@ we found iou somewhere between 0.33 to 0.4 is fine and we kept skip_box_thr as 0
 ![enter image description here](https://i.ibb.co/BgsPSBC/Vin-Big-Data-CV-Bayesian-Kaggle-3-31-2021-6-13-05-PM.png)
 ![enter image description here](https://i.ibb.co/Bg9WVrn/Vin-Big-Data-CV-Bayesian-Kaggle-3-31-2021-6-12-56-PM.png)
 
-- After spending more time on the calculation of the competition metric I also realized “No Penalty For Adding More Bbox” as @cdeotte explains clearly here: https://www.kaggle.com/c/vinbigdata-chest-xray-abnormalities-detection/discussion/229637 This was key to big jumps I guess. Having more confident boxes is good but at the same time having many low confidence boxes can only improve this metric…
-![enter image description here](https://i.ibb.co/yXNVKTZ/photo-2021-03-31-18-37-48.jpg)
+- After spending more time on the calculation of the competition metric We also realized “No Penalty For Adding More Bbox” as @cdeotte explains clearly here: https://www.kaggle.com/c/vinbigdata-chest-xray-abnormalities-detection/discussion/229637 This was key to big jumps I guess. Having more confident boxes is good but at the same time having many low confidence boxes can only improve this metric…
 
-For the last ten days, @fatihozturk spent analyzing our good and bad submissions both by submitting and also visually inspecting predicted boxes. I found out that our improved subs were indeed improving for almost all classes including common and rare ones.
+![enter image description here](https://i.ibb.co/PMmLMLP/photo-2021-03-31-18-37-48.jpg)
+
+- For the last ten days, @fatihozturk spent analyzing our good and bad submissions both by submitting and also visually inspecting predicted boxes. I found out that our improved subs were indeed improving for almost all classes including common and rare ones.
+
 ![enter image description here](https://i.ibb.co/k0NRCXJ/photo-2021-04-01-00-30-35.jpg)
 
 ### Things didn't worked 
