@@ -2,7 +2,7 @@
 
 
 ### TLDR
-As @Fatih mentioned in the [post](https://www.kaggle.com/c/vinbigdata-chest-xray-abnormalities-detection/discussion/229724), We prepared our 0.331/0.301 PublicLB/PrivateLB . The main magic for this competition was Ensembling and also there were lots of other tricks . We didnt had clear CV strategy. and weighting each submission during ensembling based on how validated it is.
+As @Fatih mentioned in this [post](https://www.kaggle.com/c/vinbigdata-chest-xray-abnormalities-detection/discussion/229724), Here is how we prepared our final submission 0.354/0.314 PublicLB/PrivateLB also had 0.330/0.321 PublicLB/PrivateLB (which we didnt selected) . The main magic for this competition was Ensembling and also there were lots of other tricks . We didnt had clear CV strategy, this was our main problem.
 
 **CV strategy** :  This was our main challenge. We didn't have an unique validation scheme. Since we started the competition as different teams, we all were using different CV splits to train our models and to build our separated best ensembles. Finally we could overcome this difficulty by using the public LB as an extra validation dataset. We felt that this strategy was a bit risky, so we also retrained some of our best models using a common validation split and then we ensemble them. This last approach didn't have the best score on the private LB. We think that our last ensemble using the public LB as a validation source helped out final solution to fit better to the consensus method used to build the test dataset.
 
@@ -14,23 +14,23 @@ Our strategy for the final submission was 3 stages :
 It was designed Since we didn't had a clear Validation scheme
 
 ### Models we used for Ensembling
-**Fully Validated Stage:**
-- Detectron2 Resnet50 (notebook by @corochann, Thanks)
-- YoloV5
-- EffDetD2
-- @nxhong93 (https://www.kaggle.com/nxhong93/yolov5-chest-512)
+- **Fully Validated Stage:**
+  - Detectron2 Resnet50 (notebook by @corochann, Thanks)
+  - YoloV5
+  - EffDetD2
+  - @nxhong93 (https://www.kaggle.com/nxhong93/yolov5-chest-512)
 
-**Partially Validated:**
-- YoloV5 5Folds
-- ClassWise model (i didnt worked but input as a low weighted)
+- **Partially Validated:**
+  - YoloV5 5Folds
+  - ClassWise model (i didnt worked but input as a low weighted)
 
 
-**Invalidated Stage:**
-- 2 EffdetD2 model  @awsaf49
-- 4 YOLOV5 (2x w/ TTA , 2x w/o TTA) by 
-- 16 Classes Yolo model
-- New Anchor Yolo
-- Detectron2 Resnet50 (notebook by @corochann, Thanks)
+- **Invalidated Stage:**
+  - 2 EffdetD2 model  @awsaf49
+  - 4 YOLOV5 (2x w/ TTA , 2x w/o TTA) by 
+  - 16 Classes Yolo model
+  - New Anchor Yolo
+  - Detectron2 Resnet50 (notebook by @corochann, Thanks)
 
 ### Ensembling Strategy
 
@@ -61,11 +61,11 @@ we found iou somewhere between 0.33 to 0.4 is fine and we kept skip_box_thr as 0
 ![enter image description here](https://i.ibb.co/BgsPSBC/Vin-Big-Data-CV-Bayesian-Kaggle-3-31-2021-6-13-05-PM.png)
 ![enter image description here](https://i.ibb.co/Bg9WVrn/Vin-Big-Data-CV-Bayesian-Kaggle-3-31-2021-6-12-56-PM.png)
 
-- After spending more time on the calculation of the competition metric We also realized “No Penalty For Adding More Bbox” as @cdeotte explains clearly here: https://www.kaggle.com/c/vinbigdata-chest-xray-abnormalities-detection/discussion/229637 This was key to big jumps I guess. Having more confident boxes is good but at the same time having many low confidence boxes can only improve this metric…
+- After spending more time on the calculation of the competition metric. We also realized “No Penalty For Adding More Bbox” as @cdeotte explains clearly here: https://www.kaggle.com/c/vinbigdata-chest-xray-abnormalities-detection/discussion/229637 This was key to big jumps I guess. Having more confident boxes is good but at the same time having many low confidence boxes can only improve this metric…
 
 ![enter image description here](https://i.ibb.co/yXNVKTZ/photo-2021-03-31-18-37-48.jpg)
 
-- For the last ten days, @fatihozturk spent analyzing our good and bad submissions both by submitting and also visually inspecting predicted boxes. I found out that our improved subs were indeed improving for almost all classes including common and rare ones.
+- For the last ten days, we spent analyzing our good and bad submissions both by submitting and also visually inspecting predicted boxes. I found out that our improved subs were indeed improving for almost all classes including common and rare ones.
 
 ![enter image description here](https://i.ibb.co/k0NRCXJ/photo-2021-04-01-00-30-35.jpg)
 
