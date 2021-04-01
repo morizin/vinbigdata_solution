@@ -15,21 +15,22 @@ It was designed Since we didn't had a clear Validation scheme
 
 ### Models we used for Ensembling
 - **Fully Validated Stage:**
-* Detectron2 Resnet50 (notebook by @corochann, Thanks)
-* YoloV5
-* EffDetD2
-* @nxhong93 (https://www.kaggle.com/nxhong93/yolov5-chest-512)
+- - Detectron2 Resnet50 (notebook by @corochann, Thanks)
+- - YoloV5
+- - EffDetD2
+- - @nxhong93 (https://www.kaggle.com/nxhong93/yolov5-chest-512)
 
 - **Partially Validated:**
-* YoloV5 5Folds
-* ClassWise model (i didnt worked but input as a low weighted)
+- - YoloV5 5Folds
+- - ClassWise model (i didnt worked but input as a low weighted)
+
 
 - **Invalidated Stage:**
-* 2 EffdetD2 model  @awsaf49
-*  4 YOLOV5 (2x w/ TTA , 2x w/o TTA) by 
-*  16 Classes Yolo model
-*  New Anchor Yolo
-*  Detectron2 Resnet50 (notebook by @corochann, Thanks)
+- - 2 EffdetD2 model  @awsaf49
+- - 4 YOLOV5 (2x w/ TTA , 2x w/o TTA) by 
+- - 16 Classes Yolo model
+- - New Anchor Yolo
+- - Detectron2 Resnet50 (notebook by @corochann, Thanks)
 
 ### Ensembling Strategy
 
