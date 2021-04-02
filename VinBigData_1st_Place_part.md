@@ -22,7 +22,7 @@ It was designed Since we didn't had a clear Validation scheme
 
 - **Partially Validated:**
   - YoloV5 5Folds
-  - ClassWise model (i didnt worked but input as a low weighted)
+  - ClassWise model (it didnt worked but input as a low weighted)
 
 
 - **Invalidated Stage:**
