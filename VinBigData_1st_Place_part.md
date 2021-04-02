@@ -59,7 +59,7 @@ we found iou somewhere between 0.33 to 0.4 is fine and we kept skip_box_thr as 0
 
 - After spending more time on the calculation of the competition metric. We also realized “No Penalty For Adding More Bbox” as @cdeotte explains clearly here: https://www.kaggle.com/c/vinbigdata-chest-xray-abnormalities-detection/discussion/229637 This was key to big jumps I guess. Having more confident boxes is good but at the same time having many low confidence boxes can only improve this metric…. It did worked for our single network. But for our ensemble this didn't.
 
-![enter image description here](https://i.ibb.co/yXNVKTZ/photo-2021-03-31-18-37-48.jpg)
+![enter image description here](https://i.postimg.cc/BnL1z77F/photo-2021-03-31-18-37-48.jpg)
 
 - For the last ten days, we spent analyzing our good and bad submissions both by submitting and also visually inspecting predicted boxes. I found out that our improved subs were indeed improving for almost all classes including common and rare ones.
 
