@@ -34,14 +34,9 @@ It was designed Since we didn't had a clear Validation scheme
 
 ### Ensembling Strategy
 
-![enter image description here](https://i.ibb.co/5WKvNyK/Simple-Ensemble-Lucidchart-3-31-2021-5-54-15-PM.png)
+![enter image description here](https://i.ibb.co/hLwJ82P/Untitled-Document-1.png)
 
-This Ensembling scheme gave a huge increase in both Public and Private LB. If we use only WBF we could only achieve 0.294 in Public LB. In these strategy, we got increase to 0.319/0.301 in PublicLB/PrivateLB .
 We used @zfturbo ’s ensembling repo. https://github.com/ZFTurbo/Weighted-Boxes-Fusion) and used above approach in Invalidated samples. 
-We had 3 Stages as stated above:
-- Stage 1 : We ensembled based on validated only by WBF
-- Stage 2 : We ensembled based on partially validated samples only by WBF
-- Stage 3 : We ensembled based on invalidated samples(which was ensembled by above approach) only by WBF
 
 **Ensemble Block:**  *WBF + below ensemble method*
 
