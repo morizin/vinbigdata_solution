@@ -35,7 +35,7 @@ It was designed Since we didn't had a clear Validation scheme
 ### Ensembling Strategy
 
 
-![enter image description here](https://i.ibb.co/nf4YGyk/Untitled-Document-2.png)
+![enter image description here](https://pasteboard.co/JVsnJTp.png)
 
 
 We used @zfturbo ’s ensembling repo. https://github.com/ZFTurbo/Weighted-Boxes-Fusion) and used above approach in Invalidated samples. 
