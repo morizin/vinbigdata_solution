@@ -2,7 +2,7 @@
 
 
 ### TLDR
-As @Fatih mentioned in this [post](https://www.kaggle.com/c/vinbigdata-chest-xray-abnormalities-detection/discussion/229724), Here is how we prepared our final submission 0.354/0.314 PublicLB/PrivateLB also had 0.330/0.321 PublicLB/PrivateLB (which we didnt selected) . The main magic for this competition was Ensembling and also there were lots of other tricks . We didnt had clear CV strategy, this was our main problem.
+As @fatihozturk mentioned in this [post](https://www.kaggle.com/c/vinbigdata-chest-xray-abnormalities-detection/discussion/229724), Here is how we prepared our final submission 0.354/0.314 PublicLB/PrivateLB also had 0.330/0.321 PublicLB/PrivateLB (which we didnt selected) . The main magic for this competition was Ensembling and also there were lots of other tricks. We didnt had clear CV strategy, this was our main problem.
 
 **CV strategy** :  This was our main challenge. We didn't have an unique validation scheme. Since we started the competition as different teams, we all were using different CV splits to train our models and to build our separated best ensembles. Finally we could overcome this difficulty by using the public LB as an extra validation dataset. We felt that this strategy was a bit risky, so we also retrained some of our best models using a common validation split and then we ensemble them. This last approach didn't have the best score on the private LB. We think that our last ensemble using the public LB as a validation source helped out final solution to fit better to the consensus method used to build the test dataset.
 
@@ -38,10 +38,10 @@ It was designed Since we didn't had a clear Validation scheme
 ![enter image description here](https://i.postimg.cc/CMjP3z8J/Untitled-Document-1.png)
 
 
-We used @zfturbo ’s ensembling repo. https://github.com/ZFTurbo/Weighted-Boxes-Fusion) and used above approach in Invalidated samples. 
+We used @zfturbo ’s ensembling repo. https://github.com/ZFTurbo/Weighted-Boxes-Fusion) and used above approach. 
 
 In the Invalidated Stage, finally we use WBF+psum. p_sum was one of tricks in Modified WBF.
-@socom20 has a modified WBF ensembling method, which improved our Public from 0.319 to 0.331. But the Private seems to stand the same (i.e. 0.301) .
+@socom20 has a modified WBF ensembling method, p_sum improved our Public from 0.319 to 0.331. But the Private seems to stand the same (i.e. 0.301) .
 
 **Modified WBF:**  It also has more flexibility than WBF and also have 4 methods, we found only 2 of them were useful. 
 - "p_det_weight" or as an alias "p_det_weight_pmean", has a behavior similar to WBF, it finds the set of bboxes with iou > thr, and then weights them using their detection probabilities (detection confidences). The new p_det is an average of the detection probabilities of detections with iou > thr.
@@ -74,4 +74,4 @@ we found iou somewhere between 0.33 to 0.4 is fine and we kept skip_box_thr as 0
 ### Models we choose.
 - Best at local validation (around 0.45+ mAP locally), Public: 0.300, private: 0.287
 - Best at LB. Public: 0.354, private: 0.314
-- Our best submission in private was 0.321
+- Our best submission in private was 0.321 which was 0.330 in Public
