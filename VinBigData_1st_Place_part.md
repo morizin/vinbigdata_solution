@@ -26,8 +26,8 @@ It was designed Since we didn't had a clear Validation scheme
 
 
 - **Invalidated Stage:**
-  - 2 EffdetD2 model  @awsaf49
-  - 4 YOLOV5 (2x w/ TTA , 2x w/o TTA) by 
+  - 2 EffdetD2 model  
+  - 4 YOLOV5 (2x w/ TTA , 2x w/o TTA) by @awsaf49
   - 16 Classes Yolo model
   - New Anchor Yolo
   - Detectron2 Resnet50 (notebook by @corochann, Thanks)
