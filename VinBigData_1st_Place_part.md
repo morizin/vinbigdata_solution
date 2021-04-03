@@ -36,7 +36,7 @@ To ensemble all the partial models we mainly used @zfturbo's ensembling reposito
 
 ![enter image description here](https://i.postimg.cc/CMjP3z8J/Untitled-Document-1.png)
 
-As you can see at the end of the Not Validated Stage, we use WBF+p_sum. This last blending metho is a variant of WBF proposed by @socom20 and was intended to simulate the consensus of radiologists used in this particular test dataset. By using WBF+p_sum improved our Not Validated stage from 0.319 to 0.331 in the PublicLB.
+As you can see at the end of the Not Validated Stage, we use WBF+p_sum. This last blending method is a variant of WBF proposed by @socom20 and was intended to simulate the consensus of radiologists used in this particular test dataset. By using WBF+p_sum improved our Not Validated stage from 0.319 to 0.331 in the PublicLB.
 
 **Modified WBF:**  It has more flexibility than WBF, it has 4 bbox blending technics, we found that only 2 of them were useful in this competition:
 - "p_det_weight_pmean", has a behavior similar to WBF, it finds the set of bboxes with iou > thr, and then weights them using their detection probabilities (detection confidences). The new p_det (detection confidence) is an **average** over the detection probabilities of detections with iou > thr.
