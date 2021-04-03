@@ -71,3 +71,4 @@ In our final submission the not validated stage had a high weighing, that lead t
 - 4x Titan X
 - Ryzen 9 3950x, 64GB of Ram Memory 
 - Nvidia RTX 3080.
+- Quadro RTX 6000
