@@ -34,7 +34,7 @@ Our strategy for the final submission can be divided in 3 stages :
 
 To ensemble all the partial models we mainly used @zfturbo's ensembling repository https://github.com/ZFTurbo/Weighted-Boxes-Fusion. Our ensemble technic is shown in the following figure:
 
-![enter image description here](https://i.postimg.cc/5yCf9d33/Untitled-Document-1.png)
+![enter image description here](https://i.postimg.cc/tT38kpcQ/Untitled-Document-12.png)
 
 As you can see at the end of the Not Validated Stage, we use WBF+p_sum. This last blending method is a variant of WBF proposed by @socom20 and was intended to simulate the consensus of radiologists used in this particular test dataset. By using WBF+p_sum improved our Not Validated stage from 0.319 to 0.331 in the PublicLB.
 
