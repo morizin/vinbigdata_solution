@@ -37,7 +37,7 @@ Our strategy for the final submission can be divided in 3 stages :
 
 To ensemble all the partial models we mainly used @zfturbo's ensembling repository https://github.com/ZFTurbo/Weighted-Boxes-Fusion. Our ensemble technic is shown in the following figure:
 
-![enter image description here](https://i.postimg.cc/ncRwRrfg/2x-Page-1-5.png)
+![enter image description here](https://i.postimg.cc/NjfVC2Mv/2x-Page-1-6.png)
 
 As you can see at the end of the Not Validated Stage, we use WBF+p_sum. This last blending method is a variant of WBF proposed by @socom20 and was intended to simulate the consensus of radiologists used in this particular test dataset. By using WBF+p_sum improved our Not Validated stage from 0.319 to 0.331 in the PublicLB.
 
@@ -59,7 +59,7 @@ In our final submission the not validated stage had a high weighting, that lead 
 ![enter image description here](https://i.ibb.co/k0NRCXJ/photo-2021-04-01-00-30-35.jpg)
 
 ### Things didn't worked 
-- Multi Label Classifier: We trained a multilabel classifier using as output the 14 classes.We used sigmoid as activation because we needed the probability of each disease and many images have more than one disease. The idea was to remove from the ensemble all the bboxes not predicted by this classifier model, this approach lead to reducing the performance.  We also tried a switch the pooling layer and to use PCAM (it is an attention pooling used in the [Top1 Solution of CheXpert](https://github.com/jfhealthcare/Chexpert)), but it didn't work either. 
+- Multi Label Classifier: We trained a multilabel classifier using as output the 14 classes.We used sigmoid as activation because we needed the probability of each disease and many images have more than one disease. The idea was to remove from the ensemble all the bboxes not predicted by this classifier model, This approach led to a reduction in performance.  We also tried a switch the pooling layer and to use PCAM (it is an attention pooling used in the [Top1 Solution of CheXpert](https://github.com/jfhealthcare/Chexpert)), but it didn't work either. 
 - Bbox Filter: We trained a EfficientNetB6 which classifies whether the detected bboxes belong to selected class or not just by seeing the crop selected by the ensemble. The model couldn't understand the different between each disease, perhaps it needed more information of the whole image.
 - Usage of External Dataset: We tried to use NIH dataset. We first trained a backbone as a Multi-Label Classifier using NIH classes, and then we transfer its weights of the detector's backbone. Finally we trained only the detection heads using this competition's dataset. We couldn't detect any apreciable improvement in the particular detector score.
 - ClassWise Model: we trained different models, one for each detection class. We used clsX + cls14 as each model's dataset. In this case each model had its own set of anchors prepared for detecting the class of interest. Some classes improved its CV performance but other didn't. Joining all the models we got a very good model, unfortunately the validation split used in this model was different form the others it was unreliable to add it to the Validated Stage so we decided to included it in Partially Validated Stage. But still didnt gave any improvements.
@@ -73,6 +73,6 @@ In our final submission the not validated stage had a high weighting, that lead 
 - 4x Quadro GV100
 - 4x Geforce GTX 1080
 - 4x Titan X
-- Ryzen 9 3950x, 64GB of Ram Memory 
-- Nvidia RTX 3080.
+- Ryzen 9 3950x
+- Nvidia RTX 3080
 - Quadro RTX 6000
