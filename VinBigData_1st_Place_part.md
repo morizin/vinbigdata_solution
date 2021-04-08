@@ -15,7 +15,7 @@ Our strategy for the final submission can be divided in 3 stages :
 
 ### Models we used for Ensembling
 - **Fully Validated Stage:**
-  - Detectron2 Resnet50 (notebook by @corochann, Thanks)
+  - Detectron2 Resnet101 (notebook by @corochann, Thanks)
   - YoloV5
   - EffDetD2
 
@@ -24,8 +24,9 @@ Our strategy for the final submission can be divided in 3 stages :
 
 - **Not Validated Stage:**
   - 2 EffdetD2 model  
-  - 3 YoloV5 (1x w/ TTA , 2x w/o TTA) by @awsaf49
+  - 3 YoloV5 (1x w/ TTA , 2x w/o TTA)
   - 16 Classes Yolo model
+  - 5 Folds YoloV5 by @awsaf49
   - New Anchor Yolo
   - Detectron2 Resnet50 (notebook by @corochann, Thanks)
   - YoloV5 @nxhong93 (https://www.kaggle.com/nxhong93/yolov5-chest-512)
@@ -35,7 +36,7 @@ Our strategy for the final submission can be divided in 3 stages :
 
 To ensemble all the partial models we mainly used @zfturbo's ensembling repository https://github.com/ZFTurbo/Weighted-Boxes-Fusion. Our ensemble technic is shown in the following figure:
 
-![enter image description here](https://i.postimg.cc/WzGqnF8D/2x-Page-1-1.png)
+![enter image description here](https://i.postimg.cc/J4sb8cFr/2x-Page-1-2.png)
 
 As you can see at the end of the Not Validated Stage, we use WBF+p_sum. This last blending method is a variant of WBF proposed by @socom20 and was intended to simulate the consensus of radiologists used in this particular test dataset. By using WBF+p_sum improved our Not Validated stage from 0.319 to 0.331 in the PublicLB.
 
