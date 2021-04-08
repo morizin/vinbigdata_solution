@@ -36,7 +36,7 @@ Our strategy for the final submission can be divided in 3 stages :
 
 To ensemble all the partial models we mainly used @zfturbo's ensembling repository https://github.com/ZFTurbo/Weighted-Boxes-Fusion. Our ensemble technic is shown in the following figure:
 
-![enter image description here](https://i.postimg.cc/J4sb8cFr/2x-Page-1-2.png)
+![enter image description here](https://i.postimg.cc/90HFk9rB/2x-Page-1-3.png)
 
 As you can see at the end of the Not Validated Stage, we use WBF+p_sum. This last blending method is a variant of WBF proposed by @socom20 and was intended to simulate the consensus of radiologists used in this particular test dataset. By using WBF+p_sum improved our Not Validated stage from 0.319 to 0.331 in the PublicLB.
 
@@ -48,6 +48,10 @@ Because of the sum of the p_dets, "p_det_weight_psum" needs a final normalizatio
 In our final submission the not validated stage had a high weighing, that lead to an overfitted problem in our final ensemble we got  0.354/0.314 Public/Private. If we had reduced the weighting for this not validated stage, the LB score would have become 0.330/0.321 Public/Private as we previously have mentioned in the post.
 
 ### Some Interesting Findings
+- We found that the public score was quite representative for the final PrivateLB. Because of this we thought our 3 stage Validation approach is good in our case. We found this by using our unique val set. Here's how we did it. We started a for loop of 500 iterations, In each iterations we sampled 300 images from our val set, and calculated mAP between a single model and ground truth (blue dots) at every 500 iterations. and we calculated mAP between a ensembled model and ground truth (orange dots) at every 500 iterations. For the graph below we understands that in a some of 300 images sample, in some cases ensemble model have low mAP than a single model. We found this was the problem happend when we have a better CV model but low LB and better LB and low CV. I think some might have encountered this problem.
+- 
+![enter image description here](https://i.postimg.cc/0Q8V0WCG/photo-2021-04-08-16-09-42.jpg)
+
 - After spending more time understanding the competition metric, we realized that there is No Penalty For Adding More Bbox as @cdeotte explains clearly here: https://www.kaggle.com/c/vinbigdata-chest-xray-abnormalities-detection/discussion/229637. Having more confident boxes is good but, at the same time, having many low confidence bboxes imploves the Recall and can improve the mAP as well. We tested this approach by using two models, a  Model A with a good mAP, and a Model B with a good Recall for all the classes. The folowing figure shows on the left the Precision vs Recall curves of Model A. It can be seen that many class tails end with a maximun recall = 0.7. We managed to add to Model A all the bboxes predicted for Model B which doesn't overlap with any bbox of predicted for Model A, the result is in the plot of the right. It can be seen that the main shape of the PvsR curves are still the same, but the tails now reach over recall=0.8. We didn't use this a[proach in our final model because the final ensemble aready had a very good recall for all the clases.
 
 ![enter image description here](https://i.postimg.cc/BnL1z77F/photo-2021-03-31-18-37-48.jpg)
